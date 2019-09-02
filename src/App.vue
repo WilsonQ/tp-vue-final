@@ -1,33 +1,37 @@
 <template>
-  <v-app>
-    <v-app-bar app>
-      <v-toolbar-title class="headline text-uppercase">
-        <span>Vuetify</span>
-        <span class="font-weight-light">MATERIAL DESIGN</span>
-      </v-toolbar-title>
-      <v-spacer></v-spacer>
-      <v-btn
-        text
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>open_in_new</v-icon>
-      </v-btn>
-    </v-app-bar>
-
-    <v-content>
-      <router-view/>
-    </v-content>
-  </v-app>
+  <div id="app">
+    <v-app id="inspire">
+      <Drawer />
+      <Navbar />
+      <v-content>
+        <v-container fluid grid-list-lg>
+          <router-view></router-view>
+        </v-container>
+      </v-content>
+      <Footer />
+    </v-app>
+  </div>
 </template>
 
 <script>
-
+import Drawer from "./components/layout/Drawer";
+import Navbar from "./components/layout/Navbar";
+import Footer from "./components/layout/Footer";
 export default {
-  name: 'App',
+  name: "App",
+  components: {
+    Drawer,
+    Navbar,
+    Footer
+  },
+  props: {
+    source: String
+  },
   data: () => ({
-    //
+    drawer: null
   }),
+  created() {
+    this.$vuetify.theme.dark = true;
+  }
 };
 </script>
