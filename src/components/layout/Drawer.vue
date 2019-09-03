@@ -1,6 +1,15 @@
 <template>
   <v-navigation-drawer v-model="drawer" app clipped>
     <v-list>
+      <v-list-item to="/">
+        <v-list-item-action>
+          <v-icon>home</v-icon>
+        </v-list-item-action>
+        <v-list-item-content>
+          <v-list-item-title>Home</v-list-item-title>
+        </v-list-item-content>
+      </v-list-item>
+
       <v-list-group
         v-for="item in items"
         :key="item.title"
@@ -14,7 +23,7 @@
           </v-list-item-content>
         </template>
 
-        <v-list-item v-for="subItem in item.items" :key="subItem.title" @click>
+        <v-list-item v-for="subItem in item.items" :key="subItem.title" :to="subItem.path">
           <v-list-item-content>
             <v-list-item-title v-text="subItem.title"></v-list-item-title>
           </v-list-item-content>
@@ -32,11 +41,12 @@ export default {
       {
         action: "local_activity",
         title: "Producto",
+        path: "producto",
         active: false,
         items: [
-          { title: "Nuevo Producto" },
-          { title: "Modificar Producto" },
-          { title: "Eliminar Producto" }
+          { title: "Nuevo Producto", path: "nuevoProducto" },
+          { title: "Modificar Producto", path: "modificarProducto" },
+          { title: "Eliminar Producto", path: "eliminarProducto" }
         ]
       }
     ]

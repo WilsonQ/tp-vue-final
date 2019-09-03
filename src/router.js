@@ -2,6 +2,7 @@ import Vue from "vue";
 import Router from "vue-router";
 import Home from "./views/Home.vue";
 import Dark from "./views/Dark.vue";
+import Producto from "./views/Productos.vue";
 
 Vue.use(Router);
 
@@ -18,6 +19,21 @@ export default new Router({
       path: "/dark",
       name: "dark",
       component: Dark
+    },
+    {
+      path: "/nuevoProducto",
+      name: "nuevo",
+      component: Producto
+    },
+    {
+      path: "/modificarProducto",
+      name: "modificar",
+      component: Producto
+    },
+    {
+      path: "/eliminarProducto",
+      name: "eliminar",
+      component: Producto
     },
     {
       path: "/about",
