@@ -44,6 +44,7 @@ export default {
         path: "producto",
         active: false,
         items: [
+          { title: "Listar Producto", path: "listarProducto" },
           { title: "Nuevo Producto", path: "nuevoProducto" },
           { title: "Modificar Producto", path: "modificarProducto" },
           { title: "Eliminar Producto", path: "eliminarProducto" }

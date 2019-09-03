@@ -3,8 +3,18 @@
     <v-container>
       <v-row no-gutters>
         <v-col class="title" md="9">
-          <h1>{{$route.name}} producto</h1>
+          <h1 class="title">{{$route.name}} producto</h1>
+ <v-col class="title" md="3">
+          <v-text-field
+            v-model="search"
+            append-icon="search"
+            label="Search"
+            single-line
+            hide-details
+          ></v-text-field>
+          </v-col>
         </v-col>
+
         <v-col md="2" offset-md="1">
           <v-btn @click="clear" tile outlined color="warning">
             <v-icon left>clear_all</v-icon>Limpiar
@@ -74,6 +84,7 @@
           <v-text-field
             ref="cod"
             type="number"
+            v-if="$route.name !== 'modificar'"
             v-model="getProductoData.costo"
             label="Costo"
             required
@@ -125,7 +136,7 @@
 
       <v-row no-gutters>
         <v-col class="title" md="6">
-          <v-file-input accept="image/*" label="File input"></v-file-input>
+          <v-file-input accept="image/*" label="Buscar Imagen"></v-file-input>
         </v-col>
       </v-row>
       <v-row no-gutters>
@@ -148,6 +159,8 @@ export default {
   data: () => ({
     valid: false,
     cod: false,
+    modificar: false,
+    nuevo: false,
     nameRules: [
       v => !!v || "El nombre es requerido",
       v => v.length <= 10 || "Name must be less than 10 characters"
