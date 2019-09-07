@@ -2,10 +2,10 @@
   <v-container wrap>
     <v-form ref="form" @submit.prevent="submit">
       <v-row>
-        <v-col cols="12" md="4">
+        <v-col cols="9" md="4">
           <h2 class="headline font-weight-bold mb-3">{{$route.name}} Producto</h2>
         </v-col>
-        <v-col cols="12" offset-md="7" class="pb-0 icon" md="1">
+        <v-col cols="3" offset-md="7" class="pb-0 icon" md="1">
           <v-tooltip bottom>
             <template v-slot:activator="{ on }">
               <v-btn @click="reset" color="warning" fab dark v-on="on">
@@ -82,7 +82,7 @@
                   :items="items"
                   :search-input.sync="noData"
                   hide-selected
-                  hint="Maximum of 5 tags"
+                  hint="Seleccione una categoria"
                   label="Categoria"
                   multiple
                   clearable
@@ -94,9 +94,9 @@
                     <v-list-item>
                       <v-list-item-content>
                         <v-list-item-title>
-                          No results matching "
-                          <strong>{{ noData }}</strong>". Press
-                          <kbd>enter</kbd> to create a new one
+                          "No se encuentra el resultado buscado "
+                          <!-- <strong>{{ noData }}</strong>". Press
+                          <kbd>enter</kbd> to create a new one-->
                         </v-list-item-title>
                       </v-list-item-content>
                     </v-list-item>
@@ -108,11 +108,12 @@
                 <v-text-field
                   label="Costo(USD)"
                   v-model="getProductoData.costo"
+                  type="number"
                   placeholder="10.00"
                   prefix="$"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un costo"
                 ></v-text-field>
               </v-col>
 
@@ -120,11 +121,12 @@
                 <v-text-field
                   label="Precio"
                   v-model="getProductoData.precio"
+                  type="number"
                   placeholder="10.00"
                   prefix="$"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un precio"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -133,11 +135,12 @@
                 <v-text-field
                   label="Precio1"
                   v-model="getProductoData.precio1"
+                  type="number"
                   placeholder="10.00"
                   prefix="$"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un precio"
                 ></v-text-field>
               </v-col>
 
@@ -145,11 +148,12 @@
                 <v-text-field
                   label="Precio2"
                   v-model="getProductoData.precio2"
+                  type="number"
                   placeholder="10.00"
                   prefix="$"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un precio"
                 ></v-text-field>
               </v-col>
 
@@ -157,11 +161,12 @@
                 <v-text-field
                   label="Precio3"
                   v-model="getProductoData.precio3"
+                  type="number"
                   placeholder="10.00"
                   prefix="$"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un precio"
                 ></v-text-field>
               </v-col>
             </v-row>
@@ -170,10 +175,11 @@
                 <v-text-field
                   label="Stock"
                   v-model="getProductoData.stock"
+                  type="number"
                   placeholder="10.00"
                   clearable
                   filled
-                  hint="Maximum of 5 tags"
+                  hint="Por favor, ingrese un Stock"
                 ></v-text-field>
               </v-col>
 
@@ -193,6 +199,7 @@
                   filled
                   clearable
                   counter
+                  hint="Por favor, ingrese una descripcion"
                   maxlength="50"
                   auto-grow
                   label="Descripcion"
@@ -211,7 +218,7 @@
                 </v-snackbar>
               </v-col>
               <v-col cols="12" offset-md="5" md="3">
-                <v-btn class="ma-2" type="submit" outlined x-large block color="indigo">modificar</v-btn>
+                <v-btn class="ma-2" type="submit" outlined x-large block color="indigo">{{boton}}</v-btn>
               </v-col>
             </v-row>
           </v-col>
@@ -276,6 +283,9 @@ export default {
       }
 
       return true;
+    },
+    boton() {
+      return this.$route.name === "Modificar" ? "Modificar" : "Nuevo";
     }
   }
 };

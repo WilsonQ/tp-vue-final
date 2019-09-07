@@ -30,9 +30,9 @@
               <v-divider class="mx-4" inset vertical></v-divider>
               <div class="flex-grow-1"></div>
               <v-dialog v-model="dialog" max-width="500px">
-                <!-- <template v-slot:activator="{ on }"> -->
-                <template to="/nuevoProducto">
-                  <v-btn color="primary" dark class="mb-2">Nuevo Producto</v-btn>
+                <template v-slot:activator="{ on }">
+                  <!-- <template > -->
+                  <v-btn color="primary" @click="nuevo" dark class="mb-2">Nuevo Producto</v-btn>
                   <!-- <v-btn color="primary" dark class="mb-2" v-on="on">Nuevo Producto</v-btn> -->
                 </template>
                 <v-card>
@@ -72,7 +72,7 @@
             </v-toolbar>
           </template>
           <template v-slot:item.action="{ item }">
-            <v-icon small class="mr-2" @click="editItem(item)">edit</v-icon>
+            <v-icon small class="mr-2" @click="modificar(item)">edit</v-icon>
             <v-icon small @click="deleteItem(item)">delete</v-icon>
           </template>
           <template v-slot:no-data>
@@ -144,6 +144,14 @@ export default {
   },
 
   methods: {
+    modificar(item) {
+      console.log("llego el item", item);
+      this.$router.push({ name: "Modificar" });
+    },
+    nuevo() {
+      console.log("voy a nuevo");
+      this.$router.push({ name: "Nuevo" });
+    },
     initialize() {
       this.desserts = [
         {
