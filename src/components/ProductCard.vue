@@ -1,5 +1,5 @@
 <template>
-  <v-card class="mx-auto" max-width="400">
+  <v-card class="mx-auto" max-width="400" elevation="3">
     <v-img
       class="white--text"
       height="200px"
@@ -16,8 +16,7 @@
         <br />
         <span>
           GABINETE: Sentey x10 RGB II...
-          <br />
-          FUENTE: SENTEY XCP630 REALES...
+          <br />FUENTE: SENTEY XCP630 REALES...
         </span>
       </span>
     </v-card-text>

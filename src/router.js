@@ -22,17 +22,12 @@ export default new Router({
     },
     {
       path: "/nuevoProducto",
-      name: "nuevo",
+      name: "Nuevo",
       component: Producto
     },
     {
       path: "/modificarProducto",
-      name: "modificar",
-      component: Producto
-    },
-    {
-      path: "/eliminarProducto",
-      name: "eliminar",
+      name: "Modificar",
       component: Producto
     },
     {

@@ -1,5 +1,5 @@
 <template>
-  <v-navigation-drawer v-model="drawer" app clipped>
+  <v-navigation-drawer color="dark2" dark v-model="drawer" app clipped>
     <v-list>
       <v-list-item to="/">
         <v-list-item-action>
@@ -46,8 +46,7 @@ export default {
         items: [
           { title: "Listar Producto", path: "listarProducto" },
           { title: "Nuevo Producto", path: "nuevoProducto" },
-          { title: "Modificar Producto", path: "modificarProducto" },
-          { title: "Eliminar Producto", path: "eliminarProducto" }
+          { title: "Modificar Producto", path: "modificarProducto" }
         ]
       }
     ]
